@@ -64,11 +64,14 @@
         <item>Rates &amp; Offers</item>
     </string-array>
     <string name="listingTitle">Listing Title</string>
+    <string name="listingTitleMessage">Be sure to include the model, length, and location of the vessel in your title.</string>
     <string name="listingType">Listing Type</string>
+    <string name="listingTypeMessage">Select up to 3 that apply.</string>
     <string name="locationOfVessel">Location of Vessel</string>
     <string name="capacity">Capacity</string>
     <string name="operatorIncluded">Operator Included</string>
     <string name="uploadPhotos">Upload Photos</string>
+    <string name="uploadPhotosMessage">Limit 10 photos</string>
     <string name="description">Description</string>
     <string name="descriptionHint">Tell us more relevant details about your vessel and suggest any itinerary activities!</string>
     <string name="minimumHours">Minimum Hours</string>
@@ -107,5 +110,18 @@
     <string name="errLocationOfVessel">Enter location of vessel</string>
     <string name="errCapacity">Enter capacity</string>
     <string name="errOperatorIncluded">Select operator included</string>
+    <string name="setDailyHourlyRate">Set Daily Hourly Rate</string>
+    <string name="setSpecialOffer">Set Special Offer</string>
+    <string name="sundayHourlyRate">Sunday Hourly Rate</string>
+    <string name="mondayHourlyRate">Monday Hourly Rate</string>
+    <string name="tuesdayHourlyRate">Tuesday Hourly Rate</string>
+    <string name="wednesdayHourlyRate">Wednesday Hourly Rate</string>
+    <string name="thursdayHourlyRate">Thursday Hourly Rate</string>
+    <string name="fridayHourlyRate">Friday Hourly Rate</string>
+    <string name="saturdayHourlyRate">Saturday Hourly Rate</string>
+    <string name="hours">Hours</string>
+    <string name="rate">Rate</string>
+    <string name="discountPercentage">Discount Percentage</string>
+    <string name="optional">(Optional)</string>
 
 </resources>
