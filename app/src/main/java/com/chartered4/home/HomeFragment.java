@@ -1,6 +1,7 @@
 package com.chartered4.home;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.chartered4.MainActivity;
 import com.chartered4.R;
 import com.chartered4.add_listing.AddListingActivity;
 import com.chartered4.databinding.FragmentHomeBinding;
+import com.chartered4.utils.SharedObjects;
 
 /**
  * Created by DELL on 14-Oct-18.
@@ -20,6 +22,7 @@ import com.chartered4.databinding.FragmentHomeBinding;
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     FragmentHomeBinding binding;
+    SharedObjects sharedObjects;
 
     public HomeFragment() {
     }
@@ -49,6 +52,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 //            ((MainActivity) getActivity()).selectMenuItem(getActivity().getString(R.string.booking_history));
         }
         setListeners();
+
+        sharedObjects = new SharedObjects(getActivity());
+        if (sharedObjects.getUserInfo() != null
+                && !TextUtils.isEmpty(sharedObjects.getUserInfo().getFirstName())
+                && !TextUtils.isEmpty(sharedObjects.getUserInfo().getLastName())
+        ){
+            binding.txtUserName.setText(sharedObjects.getUserInfo().getFirstName() + " " + sharedObjects.getUserInfo().getLastName());
+        }
+
         return binding.getRoot();
     }
 

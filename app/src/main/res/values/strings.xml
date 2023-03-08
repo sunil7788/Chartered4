@@ -78,5 +78,10 @@
     <string name="stepTwo">Step 2</string>
     <string name="stepThree">Step 3</string>
     <string name="submit">Submit</string>
+    <string name="welcomeBack">Welcome Back,</string>
+    <string name="homeMessage">Track and manage your inquiries, bookings and customers.</string>
+    <string name="visitors">Visitors</string>
+    <string name="ratings">Ratings</string>
+    <string name="newInquiries">New Inquiries</string>
 
 </resources>
