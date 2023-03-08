@@ -1,0 +1,95 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">
+            @transition/change_image_transform</item>
+        <item name="android:windowSharedElementExitTransition">
+            @transition/change_image_transform</item>
+        <!-- specify enter and exit transitions -->
+        <item name="android:windowEnterTransition">@transition/explode</item>
+        <item name="android:windowExitTransition">@transition/explode</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ToolbarDark" parent="Theme.AppCompat.NoActionBar">
+        <!-- android:textColorPrimary is the  color of the title text
+             in the Toolbar, in the Theme.AppCompat theme:  -->
+        <item name="android:textColorPrimary">@color/primaryText</item>
+
+        <!-- android:textColorPrimaryInverse is the  color of the title
+             text in the Toolbar, in the Theme.AppCompat.Light theme:  -->
+        <!-- <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item> -->
+
+        <!-- android:actionMenuTextColor is the color of the text of
+              action (menu) items in the Toolbar, at least in the
+              Theme.AppCompat theme.
+              For some reason, they already get the textColorPrimary
+              when running on API 21, but not on older versions of
+              Android, so this is only necessary to support older
+              Android versions.-->
+        <item name="actionMenuTextColor">@color/primaryText</item>
+        <!-- android:textColorSecondary is the color of the menu
+             overflow icon (three vertical dots) -->
+        <item name="android:textColorSecondary">@color/primaryText</item>
+
+        <!-- This would set the toolbar's background color,
+              but setting this also changes the popup menu's background,
+              even if we define popupTheme for our <Toolbar> -->
+        <!--         <item name="android:background">@color/white</item>-->
+    </style>
+
+    <style name="FontPath.Medium" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <item name="fontPath">fonts/inter_medium.ttf</item>
+    </style>
+
+    <style name="FontPath.Bold" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <item name="fontPath">fonts/inter_bold.ttf</item>
+    </style>
+
+    <style name="FontPath.SemiBold" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <item name="fontPath">fonts/inter_semibold.ttf</item>
+    </style>
+
+    <style name="FontPath.Bebas" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <item name="fontPath">fonts/bebas_neue.otf</item>
+    </style>
+
+    <style name="CustomShapeAppearanceLogin">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">15dp</item>
+        <item name="cornerSizeTopRight">15dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="tabTextStyle" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="bottomNavigationTextStyle">
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+</resources>

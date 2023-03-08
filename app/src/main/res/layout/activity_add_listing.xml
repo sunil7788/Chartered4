@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:theme="@style/ToolbarDark"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|start">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="16dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="false"
+                    app:strokeColor="@color/topMenuBorder"
+                    app:strokeWidth="1dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/ic_back"
+                        android:backgroundTint="@color/topMenuIcon" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/add_listing"
+                    android:textAppearance="@style/FontPath.SemiBold"
+                    android:textColor="@color/toolbarTitle"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.shuhart.stepview.StepView
+            android:id="@+id/stepView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:sv_animationType="Line"
+            app:sv_doneCircleColor="@color/colorPrimary"
+            app:sv_doneCircleRadius="18dp"
+            app:sv_doneStepLineColor="@color/colorPrimary"
+            app:sv_doneStepMarkColor="@color/white"
+            app:sv_doneTextColor="@color/secondaryText"
+            app:sv_nextStepCircleColor="@color/bgEdt"
+            app:sv_nextStepCircleEnabled="true"
+            app:sv_nextStepLineColor="@color/bgEdt"
+            app:sv_nextTextColor="@color/stepsDisable"
+            app:sv_selectedCircleColor="@color/bgEdt"
+            app:sv_selectedCircleRadius="18dp"
+            app:sv_selectedStepNumberColor="@color/colorPrimary"
+            app:sv_selectedTextColor="@color/colorPrimary"
+            app:sv_stepLineWidth="1dp"
+            app:sv_stepNumberTextSize="16sp"
+            app:sv_stepPadding="4dp"
+            app:sv_stepViewStyle="@style/StepView"
+            app:sv_steps="@array/steps"
+            app:sv_stepsNumber="4"
+            app:sv_textSize="12sp"
+            app:sv_typeface="@font/inter_regular" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!--  <com.google.android.material.floatingactionbutton.FloatingActionButton
+          android:id="@+id/fab"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="bottom|end"
+          android:layout_marginEnd="@dimen/fab_margin"
+          android:layout_marginBottom="16dp"
+          app:srcCompat="@android:drawable/ic_dialog_email" />-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

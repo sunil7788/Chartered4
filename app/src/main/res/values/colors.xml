@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#4AB2A6</color>
+    <color name="colorPrimaryDark">#006270</color>
+    <color name="colorAccent">#E5A038</color>
+
+    <color name="colorPrimaryRipple">#4228929D</color>
+    <color name="colorAccentRipple">#42ABB76D</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primaryText">#344054</color>
+    <color name="primaryText1">#212121</color>
+    <color name="secondaryText">#667085</color>
+    <color name="secondaryText1">#616161</color>
+    <color name="divider">#e6e6e6</color>
+    <color name="indicatorUnselected">#D0D5DD</color>
+
+    <color name="bgLoginSignup">#F2F4F7</color>
+    <color name="appDivider">#EAECF0</color>
+    <color name="borderEdt">#EAECF0</color>
+    <color name="bgEdt">#F9FAFB</color>
+    <color name="bgIcon">#98A1B2</color>
+    <color name="topMenuBorder">#EAECF0</color>
+    <color name="topMenuIcon">#667085</color>
+    <color name="toolbarTitle">#101828</color>
+    <color name="stepsDisable">#D0D5DD</color>
+</resources>

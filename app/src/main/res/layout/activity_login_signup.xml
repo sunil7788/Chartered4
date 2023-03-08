@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgLoginSignup"
+    android:fitsSystemWindows="true"
+    tools:context=".LoginSignupActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="320dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/ic_login_patterns" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgLogo"
+                        android:transitionName="@string/transitionAppLogo"
+                        android:layout_width="87dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/ic_chartered4_logo"
+                        android:fitsSystemWindows="true"
+                        android:scaleType="fitXY" />
+
+                    <ImageView
+                        android:layout_width="169dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/ic_chartered4"
+                        android:fitsSystemWindows="true"
+                        android:scaleType="fitXY" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMain"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:cardElevation="2dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:shapeAppearance="@style/CustomShapeAppearanceLogin">
+
+                <LinearLayout
+                    android:gravity="center|top"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/bg_login_handle"
+                        android:layout_width="24dp"
+                        android:layout_height="4dp"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        app:tabMode="fixed"
+                        android:background="@color/white"
+                        app:tabSelectedTextColor="@color/colorPrimary"
+                        app:tabTextColor="@color/primaryText"
+                        app:tabIndicatorHeight="2dp"
+                        app:tabRippleColor="@null"
+                        app:tabTextAppearance="@style/tabTextStyle"/>
+
+                    <View
+                        android:background="@color/appDivider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+
+                    <include layout="@layout/content_sign_in" android:id="@+id/llSignInView"/>
+
+                    <include layout="@layout/content_sign_up" android:id="@+id/llSignUpView"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
