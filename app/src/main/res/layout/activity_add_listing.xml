@@ -90,7 +90,7 @@
             app:sv_stepNumberTextSize="16sp"
             app:sv_stepPadding="4dp"
             app:sv_stepViewStyle="@style/StepView"
-            app:sv_steps="@array/steps"
+            app:sv_steps="@array/arrSteps"
             app:sv_stepsNumber="4"
             app:sv_textSize="12sp"
             app:sv_typeface="@font/inter_regular" />

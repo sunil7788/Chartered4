@@ -5,15 +5,20 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.chartered4.MainActivity;
 import com.chartered4.R;
-import com.chartered4.add_listing.AddListingActivity;
 import com.chartered4.databinding.FragmentHomeBinding;
+import com.chartered4.models.InquiriesBean;
 import com.chartered4.utils.SharedObjects;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by DELL on 14-Oct-18.
@@ -23,6 +28,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     FragmentHomeBinding binding;
     SharedObjects sharedObjects;
+
+    ArrayList<InquiriesBean> arrInquiries;
 
     public HomeFragment() {
     }
@@ -61,6 +68,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             binding.txtUserName.setText(sharedObjects.getUserInfo().getFirstName() + " " + sharedObjects.getUserInfo().getLastName());
         }
 
+        arrInquiries = new ArrayList<>() ;
+        arrInquiries.add(new InquiriesBean("Test"));
+        arrInquiries.add(new InquiriesBean("Test"));
+        arrInquiries.add(new InquiriesBean("Test"));
+        arrInquiries.add(new InquiriesBean("Test"));
+        arrInquiries.add(new InquiriesBean("Test"));
+
+        setInquiriesAdapter();
+
+
+
         return binding.getRoot();
     }
 
@@ -85,6 +103,22 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 ((MainActivity) getActivity()).onBackPressed();
             }
         });*/
+    }
+
+    private void setInquiriesAdapter() {
+
+        if (!arrInquiries.isEmpty()){
+
+            HomeInquiriesAdapter homeInquiriesAdapter = new HomeInquiriesAdapter(arrInquiries, getActivity());
+            binding.rvInquiries.setAdapter(homeInquiriesAdapter);
+
+            binding.rvInquiries.setVisibility(View.VISIBLE);
+//            txtError.setVisibility(View.GONE);
+        }else{
+            binding.rvInquiries.setVisibility(View.GONE);
+//            txtError.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
