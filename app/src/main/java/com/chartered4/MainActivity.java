@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 
@@ -72,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+
         setSupportActionBar(binding.toolbar);
 
         sharedObjects = new SharedObjects(MainActivity.this);
@@ -91,6 +95,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (AppUtils.isNetworkConnected(MainActivity.this)) {
             inAppUpdate();
         }
+
+        binding.bottomNavigationView.getOrCreateBadge(R.id.nav_inquiries).setNumber(5);
+        binding.bottomNavigationView.getOrCreateBadge(R.id.nav_bookings).setNumber(3);
     }
 
     private void setListeners() {
@@ -276,5 +283,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
 //        overridePendingTransition(0, 0);
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            fragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

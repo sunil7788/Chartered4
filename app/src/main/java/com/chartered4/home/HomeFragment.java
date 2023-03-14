@@ -1,5 +1,6 @@
 package com.chartered4.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.chartered4.MainActivity;
 import com.chartered4.R;
+import com.chartered4.adjust_offer.AdjustOfferActivity;
 import com.chartered4.databinding.FragmentHomeBinding;
 import com.chartered4.models.InquiriesBean;
 import com.chartered4.utils.SharedObjects;
@@ -77,13 +79,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         setInquiriesAdapter();
 
-
-
         return binding.getRoot();
     }
 
     private void setListeners() {
-        binding.cardNotification.setOnClickListener(this);
+        binding.cardLogout.setOnClickListener(this);
     }
 
     @Override
@@ -106,11 +106,36 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void setInquiriesAdapter() {
-
         if (!arrInquiries.isEmpty()){
 
-            HomeInquiriesAdapter homeInquiriesAdapter = new HomeInquiriesAdapter(arrInquiries, getActivity());
+            HomeInquiriesAdapter homeInquiriesAdapter = new HomeInquiriesAdapter(arrInquiries);
             binding.rvInquiries.setAdapter(homeInquiriesAdapter);
+            homeInquiriesAdapter.setOnItemClickListener(new HomeInquiriesAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClickListener(int position, InquiriesBean bean) {
+
+                }
+
+                @Override
+                public void onItemRejectClickListener(int position, InquiriesBean bean) {
+
+                }
+
+                @Override
+                public void onItemApproveClickListener(int position, InquiriesBean bean) {
+
+                }
+
+                @Override
+                public void onItemAdjustClickListener(int position, InquiriesBean bean) {
+                    startActivity(new Intent(getActivity(), AdjustOfferActivity.class));
+                }
+
+                @Override
+                public void onItemChatClickListener(int position, InquiriesBean bean) {
+
+                }
+            });
 
             binding.rvInquiries.setVisibility(View.VISIBLE);
 //            txtError.setVisibility(View.GONE);
@@ -118,13 +143,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             binding.rvInquiries.setVisibility(View.GONE);
 //            txtError.setVisibility(View.VISIBLE);
         }
-
     }
 
     @Override
     public void onClick(View view) {
         int viewId = view.getId();
-        if (viewId == R.id.cardNotification){
+        if (viewId == R.id.cardLogout){
             ((MainActivity) getActivity()).removeAllPreferenceOnLogout();
         }
     }

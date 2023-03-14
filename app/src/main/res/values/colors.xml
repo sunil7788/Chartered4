@@ -2,6 +2,8 @@
 <resources>
 
     <color name="colorPrimary">#4AB2A6</color>
+    <color name="colorPrimary100">#EFFCFA</color>
+    <color name="colorPrimary200">#DEF9F5</color>
     <color name="colorPrimaryDark">#006270</color>
     <color name="colorAccent">#E5A038</color>
 
@@ -11,7 +13,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="blackText">#101828</color>
     <color name="primaryText">#344054</color>
     <color name="primaryText1">#212121</color>
     <color name="secondaryText">#667085</color>
@@ -32,5 +33,13 @@
     <color name="ratingGradient">#FEC84B</color>
     <color name="expiresBg">#FEF3F2</color>
     <color name="expires">#D92C20</color>
+    <color name="green">#039754</color>
     <color name="notesGradient">#9DECE2</color>
+    <color name="inquiryActions">#F9FAFB</color>
+    <color name="inquiryActionsIcons">#475467</color>
+    <color name="grey900">#101828</color>
+    <color name="grey800">#1D2939</color>
+    <color name="grey700">#344054</color>
+    <color name="grey500">#667085</color>
+    <color name="grey100">#F2F4F7</color>
 </resources>

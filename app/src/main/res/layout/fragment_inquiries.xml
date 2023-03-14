@@ -31,10 +31,6 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <!-- app:contentInsetLeft="0dp"
-         app:contentInsetStart="0dp"
-         app:contentInsetStartWithNavigation="0dp"-->
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:theme="@style/ToolbarDark"
@@ -48,41 +44,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:background="@drawable/ic_profile_pic"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"/>
-
-                <View
+                <TextView
                     android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"/>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardMain"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="16dp"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="@color/topMenuBorder"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp"
-                    app:cardPreventCornerOverlap="false"
-                    app:cardUseCompatPadding="false">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/ic_notification"
-                        android:backgroundTint="@color/topMenuIcon" />
-
-                </com.google.android.material.card.MaterialCardView>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/inquiries"
+                    android:textAppearance="@style/FontPath.SemiBold"
+                    android:textColor="@color/toolbarTitle"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:tabMode="fixed"
+            android:background="@color/white"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabTextColor="@color/primaryText"
+            app:tabIndicatorHeight="2dp"
+            app:tabRippleColor="@null"
+            app:tabTextAppearance="@style/tabTextStyle"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -90,16 +77,21 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:orientation="vertical"
         android:gravity="center|top"
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:gravity="center"
-            android:text="@string/inquiries"
-            android:textSize="16sp"
-            android:textAppearance="@style/FontPath.Medium"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvInquiries"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_view_inquiries" />
+
     </LinearLayout>
 
 

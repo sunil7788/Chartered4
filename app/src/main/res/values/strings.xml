@@ -71,7 +71,9 @@
     <string name="capacity">Capacity</string>
     <string name="operatorIncluded">Operator Included</string>
     <string name="uploadPhotos">Upload Photos</string>
-    <string name="uploadPhotosMessage">Limit 10 photos</string>
+    <string name="errUploadPhotos">Select photos</string>
+    <string name="uploadPhotosMaxMessage">Can upload up to 10 photos</string>
+    <string name="uploadPhotosMessage">(Limit 10 Photos)</string>
     <string name="description">Description</string>
     <string name="descriptionHint">Tell us more relevant details about your vessel and suggest any itinerary activities!</string>
     <string name="minimumHours">Minimum Hours</string>
@@ -124,4 +126,24 @@
     <string name="discountPercentage">Discount Percentage</string>
     <string name="optional">(Optional)</string>
 
+    <string name="yes_grant_permission">Yes, Grant permission</string>
+    <string name="permission_msg_never_checked">You have denied some permissions. Allow permissions from app settings.</string>
+    <string name="permission_msg">DB Sales app needs permission to use some features.</string>
+    <string name="go_to_settings">Go to settings</string>
+    <string name="no">No</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="from_camera">Camera</string>
+    <string name="pick_from_gallery">Device</string>
+    <string name="newStr">New</string>
+    <string name="existing">Existing</string>
+    <string name="view_more">View More</string>
+    <string name="expires_on">Expires on</string>
+    <string name="adjust_offer">Adjust Offer</string>
+    <string name="pick_up_date">Pick Up Date</string>
+    <string name="pick_up_time">Pick Up Time</string>
+    <string name="drop_off_date">Drop Off Date</string>
+    <string name="drop_off_time">Drop Off Time</string>
+    <string name="offer_amount">Offer Amount</string>
+    <string name="message">Message</string>
+    <string name="send_adjusted_offer">Send Adjusted Offer</string>
 </resources>

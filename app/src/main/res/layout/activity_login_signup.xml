@@ -90,7 +90,7 @@
                         app:tabMode="fixed"
                         android:background="@color/white"
                         app:tabSelectedTextColor="@color/colorPrimary"
-                        app:tabTextColor="@color/primaryText"
+                        app:tabTextColor="@color/grey700"
                         app:tabIndicatorHeight="2dp"
                         app:tabRippleColor="@null"
                         app:tabTextAppearance="@style/tabTextStyle"/>

@@ -1,21 +1,39 @@
 package com.chartered4.add_listing;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chartered4.MainActivity;
 import com.chartered4.R;
 import com.chartered4.databinding.FragmentBasicInfoBinding;
+import com.chartered4.models.AddListingBean;
+import com.chartered4.models.ListingTypeBean;
 import com.chartered4.utils.AppDialogs;
+import com.chartered4.utils.AppUtils;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,8 +47,8 @@ public class BasicInformationFragment extends Fragment implements View.OnClickLi
 
     FragmentBasicInfoBinding binding;
 
-    List<String> arrListingType = new ArrayList<>();
     List<String> arrOperatorIncluded = new ArrayList<>();
+    ArrayList<ListingTypeBean> arrListingType = new ArrayList<>();
 
     public BasicInformationFragment() {
     }
@@ -55,12 +73,30 @@ public class BasicInformationFragment extends Fragment implements View.OnClickLi
     }
 
     private void setListingType() {
-        arrListingType = Arrays.asList(getResources().getStringArray(R.array.arrListingType));
+        arrListingType = new ArrayList<>();
+        arrListingType.add(new ListingTypeBean("P0001","Yacht/Motor", ContextCompat.getDrawable(getActivity(), R.drawable.ic_yacht), false));
+        arrListingType.add(new ListingTypeBean("P0002","Jet-Skis", ContextCompat.getDrawable(getActivity(), R.drawable.ic_jetski), false));
+        arrListingType.add(new ListingTypeBean("P0003","Kayaks/Paddles", ContextCompat.getDrawable(getActivity(), R.drawable.ic_kayak), false));
+        arrListingType.add(new ListingTypeBean("P0004","Fishing", ContextCompat.getDrawable(getActivity(), R.drawable.ic_fishing), false));
+        arrListingType.add(new ListingTypeBean("P0008","Sail", ContextCompat.getDrawable(getActivity(), R.drawable.ic_sail), false));
+        arrListingType.add(new ListingTypeBean("P0005","Pontoons/House", ContextCompat.getDrawable(getActivity(), R.drawable.ic_pontoons), false));
+        arrListingType.add(new ListingTypeBean("P0006","Lessons", ContextCompat.getDrawable(getActivity(), R.drawable.ic_lessons), false));
 
-        ArrayAdapter<String> adapterListingType =
+        /*<string-array name="arrListingType">
+        <!--<item>Select Listing Type</item>-->
+        <item>Yacht/Motor</item>
+        <item></item>
+        <item>Kayaks/Paddles</item>
+        <item></item>
+        <item>Sail</item>
+        <item></item>
+        <item>Lessons</item>
+    </string-array>*/
+
+        /*ArrayAdapter<String> adapterListingType =
                 new ArrayAdapter<>(getActivity(), R.layout.itemview_spinner, arrListingType);
 
-        binding.actListingType.setAdapter(adapterListingType);
+        binding.actListingType.setAdapter(adapterListingType);*/
     }
 
     private void setOperatorIncluded() {
@@ -76,6 +112,7 @@ public class BasicInformationFragment extends Fragment implements View.OnClickLi
         binding.btnContinue.setOnClickListener(this);
         binding.imgAdd.setOnClickListener(this);
         binding.imgMinus.setOnClickListener(this);
+        binding.edtListingType.setOnClickListener(this);
 
         binding.edtListingTitle.addTextChangedListener(new TextWatcher() {
             @Override
@@ -152,9 +189,14 @@ public class BasicInformationFragment extends Fragment implements View.OnClickLi
     public void onClick(View view) {
         int viewId = view.getId();
         if (viewId == R.id.btnContinue) {
+            AppUtils.hideKeyboard(binding.btnContinue, getActivity());
             validateData();
         }
+        if (viewId == R.id.edtListingType) {
+            showListingTypeDialog();
+        }
         if (viewId == R.id.imgAdd){
+            AppUtils.hideKeyboard(binding.imgAdd, getActivity());
             int capacity = 0;
             if (!TextUtils.isEmpty(binding.edtCapacity.getText().toString().trim())){
                 capacity = Integer.parseInt(binding.edtCapacity.getText().toString().trim());
@@ -163,6 +205,7 @@ public class BasicInformationFragment extends Fragment implements View.OnClickLi
             binding.edtCapacity.setText(String.valueOf(capacity));
         }
         if (viewId == R.id.imgMinus){
+            AppUtils.hideKeyboard(binding.imgMinus, getActivity());
             int capacity = 0;
             if (!TextUtils.isEmpty(binding.edtCapacity.getText().toString().trim())){
                 capacity = Integer.parseInt(binding.edtCapacity.getText().toString().trim());
@@ -190,7 +233,113 @@ public class BasicInformationFragment extends Fragment implements View.OnClickLi
         if (!validateOperatorIncluded()) {
             return;
         }
+
+        AddListingActivity.addListingBean.setBoatName(binding.edtListingTitle.getText().toString().trim());
+        ArrayList<AddListingBean.Types> arrSelectedListingType = new ArrayList<>();
+        for (int i = 0; i < arrListingType.size(); i++) {
+            if (arrListingType.get(i).isChecked()){
+                arrSelectedListingType.add(new AddListingBean.Types(arrListingType.get(i).getId()));
+            }
+        }
+        AddListingActivity.addListingBean.setTypes(arrSelectedListingType);
+        AddListingActivity.addListingBean.setLocation(binding.edtLocation.getText().toString().trim());
+        AddListingActivity.addListingBean.setCapacity(binding.edtCapacity.getText().toString().trim());
+        AddListingActivity.addListingBean.setCaptainIncluded(binding.actOperatorIncluded.getText().toString().trim());
+
+        Log.e("Basic :", new Gson().toJson(AddListingActivity.addListingBean));
+
         ((AddListingActivity) getActivity()).changeNextPage();
+    }
+
+    public Dialog dialogListingType;
+    ListingTypeAdapter listingTypeAdapter ;
+
+    public void showListingTypeDialog() {
+        dialogListingType = new Dialog(getActivity());
+        dialogListingType.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogListingType.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialogListingType.setContentView(R.layout.dialog_listing_type);
+        dialogListingType.setCancelable(true);
+
+        Window window = dialogListingType.getWindow();
+        WindowManager.LayoutParams wlp = window.getAttributes();
+        wlp.gravity = Gravity.CENTER;
+        wlp.flags &= ~WindowManager.LayoutParams.FLAG_BLUR_BEHIND;
+        wlp.dimAmount = 0.8f;
+        window.setAttributes(wlp);
+        dialogListingType.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+        FloatingActionButton fabClose = dialogListingType.findViewById(R.id.fabClose);
+        TextView txtTitle = dialogListingType.findViewById(R.id.txtTitle);
+        txtTitle.setText(getResources().getString(R.string.listingType));
+        RecyclerView rvListingType = dialogListingType.findViewById(R.id.rvListingType);
+
+        listingTypeAdapter = new ListingTypeAdapter(arrListingType);
+        rvListingType.setAdapter(listingTypeAdapter);
+        listingTypeAdapter.setOnItemClickListener(new ListingTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(int position, ListingTypeBean bean) {
+                /*if (listingTypeAdapter.getSelectedCount() < 3){
+                    if (bean.isChecked()){
+                        arrListingType.get(position).setChecked(false);
+                    }else{
+                        arrListingType.get(position).setChecked(true);
+                    }
+                    listingTypeAdapter.notifyItemChanged(position);
+
+                    binding.edtListingType.setText(listingTypeAdapter.getSelectedText());
+
+                }else{
+                    AppDialogs.showSnackBar(getActivity(), getString(R.string.listingTypeMessage), rvListingType);
+                }*/
+
+                if (bean.isChecked()){
+                    arrListingType.get(position).setChecked(false);
+                }else{
+                    if (listingTypeAdapter.getSelectedCount() > 2){
+                        AppDialogs.showSnackBar(getActivity(), getString(R.string.listingTypeMessage), rvListingType);
+                        return;
+                    }
+                    arrListingType.get(position).setChecked(true);
+                }
+                listingTypeAdapter.notifyItemChanged(position);
+
+                binding.edtListingType.setText(listingTypeAdapter.getSelectedText());
+
+            }
+        });
+
+        /*productSearchAdapter.setOnItemClickListener(new ProductSearchAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(int position, ProductBean bean) {
+                callback.productCallBack(bean);
+                dialogListingType.dismiss();
+            }
+
+            @Override
+            public void onLongClickListener(int position, ProductBean bean) {
+                SharedObjects sharedObjects = new SharedObjects(context);
+                sharedObjects.dbHandler.deleteProduct(bean.getId());
+            }
+
+            @Override
+            public void onViewHideListener(boolean hideShow) {
+                rvProductSearch.setVisibility(hideShow ? View.VISIBLE : View.GONE);
+                txtProductError.setVisibility(hideShow ? View.GONE : View.VISIBLE);
+            }
+        });*/
+
+
+        fabClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogListingType.dismiss();
+            }
+        });
+
+        if (!dialogListingType.isShowing()) {
+            dialogListingType.show();
+        }
     }
 
     private boolean validateListingTitle() {
@@ -237,13 +386,13 @@ public class BasicInformationFragment extends Fragment implements View.OnClickLi
     }
 
     private boolean validateListingType() {
-        if (TextUtils.isEmpty(binding.actListingType.getText())) {
-            AppDialogs.showSnackBarAutoHide(getResources().getString(R.string.errListingType), binding.actListingType);
+        if (TextUtils.isEmpty(binding.edtListingType.getText())) {
+            AppDialogs.showSnackBarAutoHide(getResources().getString(R.string.errListingType), binding.edtListingType);
 //            binding.inputLayoutCapacity.setError(getResources().getString(R.string.errCapacity));
 //            binding.inputLayoutCapacity.setErrorEnabled(true);
             return false;
-        }else if (TextUtils.isEmpty(binding.actListingType.getText().toString().trim())) {
-            AppDialogs.showSnackBarAutoHide(getResources().getString(R.string.errListingType), binding.actListingType);
+        }else if (TextUtils.isEmpty(binding.edtListingType.getText().toString().trim())) {
+            AppDialogs.showSnackBarAutoHide(getResources().getString(R.string.errListingType), binding.edtListingType);
 //            binding.inputLayoutCapacity.setError(getResources().getString(R.string.errCapacity));
 //            binding.inputLayoutCapacity.setErrorEnabled(true);
             return false;

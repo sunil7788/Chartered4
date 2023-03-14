@@ -8,6 +8,11 @@ public class AppConstants {
 //    public static String STATUS_LOGIN = "Login";
 //    public static String STATUS_LOGOUT = "Logout";
 
+    public static final int REQUEST_CODE_TAKE_PICTURE = 33;
+    public static final int SELECT_FILE_GALLERY = 11;
+    public static final int SELECT_MULTIPLE_FILE_GALLERY = 22;
+    public static final String IMAGE_DIRECTORY_NAME = "Chartered4";
+
     public static String TokenFCM = "TokenFCM";
 
     public static class ResponseStatus {
@@ -21,6 +26,8 @@ public class AppConstants {
         public static String DATE_FORMAT_SLASH = "dd/MM/yyyy";
         public static String DATE_FORMAT_DB = "yyyy-MM-dd";
         public static String DATE_FORMAT_STOCK_HISTORY = "dd MMM";
+        public static String TIME_FORMAT_12 = "hh:mm a";
+        public static String TIME_FORMAT_24 = "HH:mm";
     }
 
     public static class PreferenceConstants {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".add_listing.AddListingActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -95,7 +95,8 @@
             app:sv_textSize="12sp"
             app:sv_typeface="@font/inter_regular" />
 
-        <androidx.viewpager.widget.ViewPager
+        <!--<androidx.viewpager.widget.ViewPager-->
+        <com.chartered4.utils.CustomViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"

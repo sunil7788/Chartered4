@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.chartered4.R;
 import com.chartered4.databinding.ActivityAddListingBinding;
+import com.chartered4.models.AddListingBean;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
@@ -19,6 +20,8 @@ public class AddListingActivity extends AppCompatActivity implements View.OnClic
 
     private ActivityAddListingBinding binding;
     private ViewPagerAdapter viewPagerAdapter;
+
+    public static AddListingBean addListingBean;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -33,6 +36,9 @@ public class AddListingActivity extends AppCompatActivity implements View.OnClic
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
+
+        addListingBean = new AddListingBean();
+
         /*getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -49,6 +55,10 @@ public class AddListingActivity extends AppCompatActivity implements View.OnClic
                         .setAction("Action", null).show();
             }
         });*/
+
+        binding.viewPager.setPagingEnabled(false);
+        binding.viewPager.setOffscreenPageLimit(1);
+
         setListeners();
 
         // setting up the adapter

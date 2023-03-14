@@ -12,8 +12,9 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chartered4.R;
-import com.chartered4.databinding.ItemviewHomeInquiriesBinding;
+import com.chartered4.databinding.ItemViewHomeInquiriesBinding;
 import com.chartered4.models.InquiriesBean;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -23,11 +24,9 @@ public class HomeInquiriesAdapter extends RecyclerView.Adapter<HomeInquiriesAdap
     ArrayList<InquiriesBean> list;
     Context context;
     OnItemClickListener onItemClickListener;
-//    ItemviewHomeInquiriesBinding binding;
 
-    public HomeInquiriesAdapter(ArrayList<InquiriesBean> list, Context context) {
+    public HomeInquiriesAdapter(ArrayList<InquiriesBean> list) {
         this.list = list;
-        this.context = context;
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -36,12 +35,9 @@ public class HomeInquiriesAdapter extends RecyclerView.Adapter<HomeInquiriesAdap
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        binding = ;
-        return new ViewHolder(ItemviewHomeInquiriesBinding.inflate(LayoutInflater.from(parent.getContext()),
+        context = parent.getContext();
+        return new ViewHolder(ItemViewHomeInquiriesBinding.inflate(LayoutInflater.from(parent.getContext()),
                 parent, false));
-
-//        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemview_home_inquiries, parent, false);
-//        return new ViewHolder(v);
     }
 
     @Override
@@ -49,13 +45,71 @@ public class HomeInquiriesAdapter extends RecyclerView.Adapter<HomeInquiriesAdap
 
         try {
             InquiriesBean bean = list.get(position);
-            holder.itemviewHomeInquiriesBinding.txtDate.setText("11 Feb, 8:32");
+//            holder.txtDate.setText("11 Feb, 8:00");
+
+            if (position == 0){
+                holder.llExpiresOn.setVisibility(View.VISIBLE);
+            }else{
+                holder.llExpiresOn.setVisibility(View.GONE);
+            }
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (holder.cardAction.getVisibility() == View.VISIBLE){
+                        holder.cardAction.setVisibility(View.GONE);
+                        holder.txtViewMore.setVisibility(View.GONE);
+                    }else{
+                        holder.cardAction.setVisibility(View.VISIBLE);
+                        holder.txtViewMore.setVisibility(View.VISIBLE);
+                    }
+                        /*if (onItemClickListener != null) {
+                            onItemClickListener.onItemClickListener(holder.getAdapterPosition(), list.get(holder.getAdapterPosition()));
+                        }*/
+                }
+            });
+
+            holder.txtViewMore.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     if (onItemClickListener != null) {
                         onItemClickListener.onItemClickListener(holder.getAdapterPosition(), list.get(holder.getAdapterPosition()));
+                    }
+                }
+            });
+
+            holder.llAdjust.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemAdjustClickListener(holder.getAdapterPosition(), list.get(holder.getAdapterPosition()));
+                    }
+                }
+            });
+
+            holder.llReject.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemRejectClickListener(holder.getAdapterPosition(), list.get(holder.getAdapterPosition()));
+                    }
+                }
+            });
+
+            holder.llApprove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemApproveClickListener(holder.getAdapterPosition(), list.get(holder.getAdapterPosition()));
+                    }
+                }
+            });
+
+            holder.llChat.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemChatClickListener(holder.getAdapterPosition(), list.get(holder.getAdapterPosition()));
                     }
                 }
             });
@@ -79,6 +133,10 @@ public class HomeInquiriesAdapter extends RecyclerView.Adapter<HomeInquiriesAdap
 
     public interface OnItemClickListener {
         void onItemClickListener(int position, InquiriesBean bean);
+        void onItemRejectClickListener(int position, InquiriesBean bean);
+        void onItemApproveClickListener(int position, InquiriesBean bean);
+        void onItemAdjustClickListener(int position, InquiriesBean bean);
+        void onItemChatClickListener(int position, InquiriesBean bean);
     }
 
     public ArrayList<InquiriesBean> adapterList() {
@@ -91,12 +149,29 @@ public class HomeInquiriesAdapter extends RecyclerView.Adapter<HomeInquiriesAdap
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        ItemviewHomeInquiriesBinding itemviewHomeInquiriesBinding;
+        TextView txtDay, txtMonthYear, txtTime, txtName, txtDuration, txtBoat, txtAdults, txtChild, txtAmount, txtViewMore;
+        MaterialCardView cardAction;
+        LinearLayout llReject, llAdjust, llChat, llApprove, llExpiresOn;
 
-        public ViewHolder(ItemviewHomeInquiriesBinding binding) {
-            super(binding.getRoot());
-            this.itemviewHomeInquiriesBinding = binding;
+        public ViewHolder(ItemViewHomeInquiriesBinding itemView) {
+            super(itemView.getRoot());
 
+            txtDay = itemView.txtDay;
+            txtMonthYear = itemView.txtMonthYear;
+            txtTime = itemView.txtTime;
+            txtName = itemView.txtName;
+            txtDuration = itemView.txtDuration;
+            txtBoat = itemView.txtBoat;
+            txtAdults = itemView.txtAdults;
+            txtChild = itemView.txtChild;
+            txtAmount = itemView.txtAmount;
+            llReject = itemView.llReject;
+            llAdjust = itemView.llAdjust;
+            llChat = itemView.llChat;
+            llApprove = itemView.llApprove;
+            llExpiresOn = itemView.llExpiresOn;
+            txtViewMore = itemView.txtViewMore;
+            cardAction = itemView.cardAction;
         }
     }
 }

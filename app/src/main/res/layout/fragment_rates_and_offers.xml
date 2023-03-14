@@ -7,10 +7,10 @@
     android:background="@color/white">
 
     <LinearLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -22,146 +22,156 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center|top"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/minimumHours"
-                    android:textAppearance="@style/FontPath.Medium"
-                    android:textColor="@color/primaryText"
-                    android:textSize="14sp" />
-
-                <RelativeLayout
-                    android:layout_marginTop="6dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/inputLayoutMinimumHrs"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/minimumHours"
-                        app:boxBackgroundColor="@color/bgEdt"
-                        app:boxCornerRadiusBottomEnd="8dp"
-                        app:boxCornerRadiusBottomStart="8dp"
-                        app:boxCornerRadiusTopEnd="8dp"
-                        app:boxCornerRadiusTopStart="8dp"
-                        app:hintEnabled="false"
-                        app:boxStrokeColor="@color/text_input_selector"
-                        app:boxStrokeWidth="1dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edtMinimumHrs"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:gravity="center"
-                            android:inputType="phone"
-                            android:digits="0123456789"
-                            android:maxLength="3"
-                            android:textColor="@color/primaryText"
-                            android:textSize="14sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <ImageView
-                        android:id="@+id/imgMinusMinimumHrs"
-                        android:layout_marginStart="16dp"
-                        android:layout_centerVertical="true"
-                        android:backgroundTint="@color/bgIcon"
-                        android:background="@drawable/ic_minus"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"/>
-
-                    <ImageView
-                        android:id="@+id/imgAddMinimumHrs"
-                        android:layout_marginEnd="16dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentEnd="true"
-                        android:backgroundTint="@color/bgIcon"
-                        android:background="@drawable/ic_add"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"/>
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fixedRatePerHour"
-                    android:layout_marginTop="12dp"
-                    android:textAppearance="@style/FontPath.Medium"
-                    android:textColor="@color/primaryText"
-                    android:textSize="14sp" />
-
-                <RelativeLayout
-                    android:layout_marginTop="6dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/inputLayoutFixedRate"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/fixedRatePerHour"
-                        app:boxBackgroundColor="@color/bgEdt"
-                        app:boxCornerRadiusBottomEnd="8dp"
-                        app:boxCornerRadiusBottomStart="8dp"
-                        app:boxCornerRadiusTopEnd="8dp"
-                        app:boxCornerRadiusTopStart="8dp"
-                        app:hintEnabled="false"
-                        app:boxStrokeColor="@color/text_input_selector"
-                        app:boxStrokeWidth="1dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edtFixedRate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:gravity="center"
-                            android:inputType="phone"
-                            android:digits="0123456789"
-                            android:maxLength="5"
-                            android:textColor="@color/primaryText"
-                            android:textSize="14sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <ImageView
-                        android:id="@+id/imgMinusFixedRate"
-                        android:layout_marginStart="16dp"
-                        android:layout_centerVertical="true"
-                        android:backgroundTint="@color/bgIcon"
-                        android:background="@drawable/ic_minus"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"/>
-
-                    <ImageView
-                        android:id="@+id/imgAddFixedRate"
-                        android:layout_marginEnd="16dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentEnd="true"
-                        android:backgroundTint="@color/bgIcon"
-                        android:background="@drawable/ic_add"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"/>
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_marginTop="12dp"
-                    android:background="@color/appDivider"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_marginTop="12dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center|top"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/minimumHours"
+                        android:textAppearance="@style/FontPath.Medium"
+                        android:textColor="@color/primaryText"
+                        android:textSize="14sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inputLayoutMinimumHrs"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/minimumHours"
+                            app:boxBackgroundColor="@color/bgEdt"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:boxStrokeColor="@color/text_input_selector"
+                            app:boxStrokeWidth="1dp"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edtMinimumHrs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:gravity="center"
+                                android:imeOptions="actionNext"
+                                android:inputType="phone"
+                                android:maxLength="3"
+                                android:textColor="@color/primaryText"
+                                android:textSize="14sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ImageView
+                            android:id="@+id/imgMinusMinimumHrs"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="16dp"
+                            android:background="@drawable/ic_minus"
+                            android:backgroundTint="@color/bgIcon" />
+
+                        <ImageView
+                            android:id="@+id/imgAddMinimumHrs"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/ic_add"
+                            android:backgroundTint="@color/bgIcon" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/fixedRatePerHour"
+                        android:textAppearance="@style/FontPath.Medium"
+                        android:textColor="@color/primaryText"
+                        android:textSize="14sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inputLayoutFixedRate"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/fixedRatePerHour"
+                            app:boxBackgroundColor="@color/bgEdt"
+                            app:boxCornerRadiusBottomEnd="8dp"
+                            app:boxCornerRadiusBottomStart="8dp"
+                            app:boxCornerRadiusTopEnd="8dp"
+                            app:boxCornerRadiusTopStart="8dp"
+                            app:boxStrokeColor="@color/text_input_selector"
+                            app:boxStrokeWidth="1dp"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edtFixedRate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:gravity="center"
+                                android:imeOptions="actionNext"
+                                android:inputType="phone"
+                                android:maxLength="5"
+                                android:textColor="@color/primaryText"
+                                android:textSize="14sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ImageView
+                            android:id="@+id/imgMinusFixedRate"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="16dp"
+                            android:background="@drawable/ic_minus"
+                            android:backgroundTint="@color/bgIcon" />
+
+                        <ImageView
+                            android:id="@+id/imgAddFixedRate"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/ic_add"
+                            android:backgroundTint="@color/bgIcon" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/appDivider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp"
                     android:orientation="vertical">
 
                     <com.github.florent37.expansionpanel.ExpansionHeader
@@ -192,10 +202,10 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:paddingTop="2dp"
-                                        android:paddingBottom="2dp"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="5dp"
                                         android:text="@string/setDailyHourlyRate"
-                                        android:textAppearance="@style/FontPath.SemiBold"
+                                        android:textAppearance="@style/FontPath.Medium"
                                         android:textColor="@color/primaryText"
                                         android:textSize="16sp" />
 
@@ -230,16 +240,16 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/sundayHourlyRate"
                                 android:layout_marginTop="12dp"
+                                android:text="@string/sundayHourlyRate"
                                 android:textAppearance="@style/FontPath.Medium"
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
                             <RelativeLayout
-                                android:layout_marginTop="6dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/inputLayoutSundayRate"
@@ -252,18 +262,18 @@
                                     app:boxCornerRadiusBottomStart="8dp"
                                     app:boxCornerRadiusTopEnd="8dp"
                                     app:boxCornerRadiusTopStart="8dp"
-                                    app:hintEnabled="false"
                                     app:boxStrokeColor="@color/text_input_selector"
-                                    app:boxStrokeWidth="1dp">
+                                    app:boxStrokeWidth="1dp"
+                                    app:hintEnabled="false">
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/edtSundayRate"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:imeOptions="actionNext"
-                                        android:gravity="center"
-                                        android:inputType="phone"
                                         android:digits="0123456789"
+                                        android:gravity="center"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="phone"
                                         android:maxLength="5"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
@@ -272,38 +282,38 @@
 
                                 <ImageView
                                     android:id="@+id/imgMinusSundayRate"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_minus"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_minus"
+                                    android:backgroundTint="@color/bgIcon" />
 
                                 <ImageView
                                     android:id="@+id/imgAddSundayRate"
-                                    android:layout_marginEnd="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentEnd="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_add"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="@drawable/ic_add"
+                                    android:backgroundTint="@color/bgIcon" />
 
                             </RelativeLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/mondayHourlyRate"
                                 android:layout_marginTop="12dp"
+                                android:text="@string/mondayHourlyRate"
                                 android:textAppearance="@style/FontPath.Medium"
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
                             <RelativeLayout
-                                android:layout_marginTop="6dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/inputLayoutMondayRate"
@@ -316,18 +326,18 @@
                                     app:boxCornerRadiusBottomStart="8dp"
                                     app:boxCornerRadiusTopEnd="8dp"
                                     app:boxCornerRadiusTopStart="8dp"
-                                    app:hintEnabled="false"
                                     app:boxStrokeColor="@color/text_input_selector"
-                                    app:boxStrokeWidth="1dp">
+                                    app:boxStrokeWidth="1dp"
+                                    app:hintEnabled="false">
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/edtMondayRate"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:imeOptions="actionNext"
-                                        android:gravity="center"
-                                        android:inputType="phone"
                                         android:digits="0123456789"
+                                        android:gravity="center"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="phone"
                                         android:maxLength="5"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
@@ -336,38 +346,38 @@
 
                                 <ImageView
                                     android:id="@+id/imgMinusMondayRate"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_minus"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_minus"
+                                    android:backgroundTint="@color/bgIcon" />
 
                                 <ImageView
                                     android:id="@+id/imgAddMondayRate"
-                                    android:layout_marginEnd="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentEnd="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_add"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="@drawable/ic_add"
+                                    android:backgroundTint="@color/bgIcon" />
 
                             </RelativeLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/tuesdayHourlyRate"
                                 android:layout_marginTop="12dp"
+                                android:text="@string/tuesdayHourlyRate"
                                 android:textAppearance="@style/FontPath.Medium"
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
                             <RelativeLayout
-                                android:layout_marginTop="6dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/inputLayoutTuesdayRate"
@@ -380,18 +390,18 @@
                                     app:boxCornerRadiusBottomStart="8dp"
                                     app:boxCornerRadiusTopEnd="8dp"
                                     app:boxCornerRadiusTopStart="8dp"
-                                    app:hintEnabled="false"
                                     app:boxStrokeColor="@color/text_input_selector"
-                                    app:boxStrokeWidth="1dp">
+                                    app:boxStrokeWidth="1dp"
+                                    app:hintEnabled="false">
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/edtTuesdayRate"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:imeOptions="actionNext"
-                                        android:gravity="center"
-                                        android:inputType="phone"
                                         android:digits="0123456789"
+                                        android:gravity="center"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="phone"
                                         android:maxLength="5"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
@@ -400,38 +410,38 @@
 
                                 <ImageView
                                     android:id="@+id/imgMinusTuesdayRate"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_minus"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_minus"
+                                    android:backgroundTint="@color/bgIcon" />
 
                                 <ImageView
                                     android:id="@+id/imgAddTuesdayRate"
-                                    android:layout_marginEnd="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentEnd="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_add"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="@drawable/ic_add"
+                                    android:backgroundTint="@color/bgIcon" />
 
                             </RelativeLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/wednesdayHourlyRate"
                                 android:layout_marginTop="12dp"
+                                android:text="@string/wednesdayHourlyRate"
                                 android:textAppearance="@style/FontPath.Medium"
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
                             <RelativeLayout
-                                android:layout_marginTop="6dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/inputLayoutWednesdayRate"
@@ -444,18 +454,18 @@
                                     app:boxCornerRadiusBottomStart="8dp"
                                     app:boxCornerRadiusTopEnd="8dp"
                                     app:boxCornerRadiusTopStart="8dp"
-                                    app:hintEnabled="false"
                                     app:boxStrokeColor="@color/text_input_selector"
-                                    app:boxStrokeWidth="1dp">
+                                    app:boxStrokeWidth="1dp"
+                                    app:hintEnabled="false">
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/edtWednesdayRate"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:imeOptions="actionNext"
-                                        android:gravity="center"
-                                        android:inputType="phone"
                                         android:digits="0123456789"
+                                        android:gravity="center"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="phone"
                                         android:maxLength="5"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
@@ -464,38 +474,38 @@
 
                                 <ImageView
                                     android:id="@+id/imgMinusWednesdayRate"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_minus"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_minus"
+                                    android:backgroundTint="@color/bgIcon" />
 
                                 <ImageView
                                     android:id="@+id/imgAddWednesdayRate"
-                                    android:layout_marginEnd="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentEnd="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_add"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="@drawable/ic_add"
+                                    android:backgroundTint="@color/bgIcon" />
 
                             </RelativeLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/thursdayHourlyRate"
                                 android:layout_marginTop="12dp"
+                                android:text="@string/thursdayHourlyRate"
                                 android:textAppearance="@style/FontPath.Medium"
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
                             <RelativeLayout
-                                android:layout_marginTop="6dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/inputLayoutThursdayRate"
@@ -508,18 +518,18 @@
                                     app:boxCornerRadiusBottomStart="8dp"
                                     app:boxCornerRadiusTopEnd="8dp"
                                     app:boxCornerRadiusTopStart="8dp"
-                                    app:hintEnabled="false"
                                     app:boxStrokeColor="@color/text_input_selector"
-                                    app:boxStrokeWidth="1dp">
+                                    app:boxStrokeWidth="1dp"
+                                    app:hintEnabled="false">
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/edtThursdayRate"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:imeOptions="actionNext"
-                                        android:gravity="center"
-                                        android:inputType="phone"
                                         android:digits="0123456789"
+                                        android:gravity="center"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="phone"
                                         android:maxLength="5"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
@@ -528,38 +538,38 @@
 
                                 <ImageView
                                     android:id="@+id/imgMinusThursdayRate"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_minus"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_minus"
+                                    android:backgroundTint="@color/bgIcon" />
 
                                 <ImageView
                                     android:id="@+id/imgAddThursdayRate"
-                                    android:layout_marginEnd="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentEnd="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_add"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="@drawable/ic_add"
+                                    android:backgroundTint="@color/bgIcon" />
 
                             </RelativeLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/fridayHourlyRate"
                                 android:layout_marginTop="12dp"
+                                android:text="@string/fridayHourlyRate"
                                 android:textAppearance="@style/FontPath.Medium"
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
                             <RelativeLayout
-                                android:layout_marginTop="6dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/inputLayoutFridayRate"
@@ -572,18 +582,18 @@
                                     app:boxCornerRadiusBottomStart="8dp"
                                     app:boxCornerRadiusTopEnd="8dp"
                                     app:boxCornerRadiusTopStart="8dp"
-                                    app:hintEnabled="false"
                                     app:boxStrokeColor="@color/text_input_selector"
-                                    app:boxStrokeWidth="1dp">
+                                    app:boxStrokeWidth="1dp"
+                                    app:hintEnabled="false">
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/edtFridayRate"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:imeOptions="actionNext"
-                                        android:gravity="center"
-                                        android:inputType="phone"
                                         android:digits="0123456789"
+                                        android:gravity="center"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="phone"
                                         android:maxLength="5"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
@@ -592,38 +602,38 @@
 
                                 <ImageView
                                     android:id="@+id/imgMinusFridayRate"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_minus"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_minus"
+                                    android:backgroundTint="@color/bgIcon" />
 
                                 <ImageView
                                     android:id="@+id/imgAddFridayRate"
-                                    android:layout_marginEnd="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentEnd="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_add"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="@drawable/ic_add"
+                                    android:backgroundTint="@color/bgIcon" />
 
                             </RelativeLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/saturdayHourlyRate"
                                 android:layout_marginTop="12dp"
+                                android:text="@string/saturdayHourlyRate"
                                 android:textAppearance="@style/FontPath.Medium"
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
                             <RelativeLayout
-                                android:layout_marginTop="6dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/inputLayoutSaturdayRate"
@@ -636,18 +646,18 @@
                                     app:boxCornerRadiusBottomStart="8dp"
                                     app:boxCornerRadiusTopEnd="8dp"
                                     app:boxCornerRadiusTopStart="8dp"
-                                    app:hintEnabled="false"
                                     app:boxStrokeColor="@color/text_input_selector"
-                                    app:boxStrokeWidth="1dp">
+                                    app:boxStrokeWidth="1dp"
+                                    app:hintEnabled="false">
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/edtSaturdayRate"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:imeOptions="actionNext"
-                                        android:gravity="center"
-                                        android:inputType="phone"
                                         android:digits="0123456789"
+                                        android:gravity="center"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="phone"
                                         android:maxLength="5"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
@@ -656,22 +666,22 @@
 
                                 <ImageView
                                     android:id="@+id/imgMinusSaturdayRate"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_minus"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_minus"
+                                    android:backgroundTint="@color/bgIcon" />
 
                                 <ImageView
                                     android:id="@+id/imgAddSaturdayRate"
-                                    android:layout_marginEnd="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentEnd="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_add"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="@drawable/ic_add"
+                                    android:backgroundTint="@color/bgIcon" />
 
                             </RelativeLayout>
 
@@ -682,15 +692,17 @@
                 </LinearLayout>
 
                 <View
-                    android:layout_marginTop="12dp"
-                    android:background="@color/appDivider"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
+                    android:layout_height="1dp"
+                    android:background="@color/appDivider" />
 
                 <LinearLayout
-                    android:layout_marginTop="12dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp"
                     android:orientation="vertical">
 
                     <com.github.florent37.expansionpanel.ExpansionHeader
@@ -721,10 +733,10 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:paddingTop="2dp"
-                                        android:paddingBottom="2dp"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="5dp"
                                         android:text="@string/setSpecialOffer"
-                                        android:textAppearance="@style/FontPath.SemiBold"
+                                        android:textAppearance="@style/FontPath.Medium"
                                         android:textColor="@color/primaryText"
                                         android:textSize="16sp" />
 
@@ -759,16 +771,16 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/hours"
                                 android:layout_marginTop="12dp"
+                                android:text="@string/hours"
                                 android:textAppearance="@style/FontPath.Medium"
                                 android:textColor="@color/primaryText"
                                 android:textSize="14sp" />
 
                             <RelativeLayout
-                                android:layout_marginTop="6dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/inputLayoutSpecialOfferHour"
@@ -781,18 +793,18 @@
                                     app:boxCornerRadiusBottomStart="8dp"
                                     app:boxCornerRadiusTopEnd="8dp"
                                     app:boxCornerRadiusTopStart="8dp"
-                                    app:hintEnabled="false"
                                     app:boxStrokeColor="@color/text_input_selector"
-                                    app:boxStrokeWidth="1dp">
+                                    app:boxStrokeWidth="1dp"
+                                    app:hintEnabled="false">
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/edtSpecialOfferHour"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:imeOptions="actionNext"
-                                        android:gravity="center"
-                                        android:inputType="phone"
                                         android:digits="0123456789"
+                                        android:gravity="center"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="phone"
                                         android:maxLength="3"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
@@ -801,51 +813,51 @@
 
                                 <ImageView
                                     android:id="@+id/imgMinusSpecialOfferHour"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_minus"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_minus"
+                                    android:backgroundTint="@color/bgIcon" />
 
                                 <ImageView
                                     android:id="@+id/imgAddSpecialOfferHour"
-                                    android:layout_marginEnd="16dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentEnd="true"
-                                    android:backgroundTint="@color/bgIcon"
-                                    android:background="@drawable/ic_add"
                                     android:layout_width="28dp"
-                                    android:layout_height="28dp"/>
+                                    android:layout_height="28dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="@drawable/ic_add"
+                                    android:backgroundTint="@color/bgIcon" />
 
                             </RelativeLayout>
 
                             <LinearLayout
-                                android:gravity="center"
-                                android:layout_marginTop="12dp"
                                 android:layout_width="match_parent"
-                                android:orientation="horizontal"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
 
                                 <LinearLayout
-                                    android:orientation="vertical"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1">
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
 
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/discountPercentage"
                                         android:layout_marginTop="12dp"
+                                        android:text="@string/discountPercentage"
                                         android:textAppearance="@style/FontPath.Medium"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
 
                                     <RelativeLayout
-                                        android:layout_marginTop="6dp"
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp">
 
                                         <com.google.android.material.textfield.TextInputLayout
                                             android:id="@+id/inputLayoutSpecialOfferDiscount"
@@ -858,18 +870,18 @@
                                             app:boxCornerRadiusBottomStart="8dp"
                                             app:boxCornerRadiusTopEnd="8dp"
                                             app:boxCornerRadiusTopStart="8dp"
-                                            app:hintEnabled="false"
                                             app:boxStrokeColor="@color/text_input_selector"
-                                            app:boxStrokeWidth="1dp">
+                                            app:boxStrokeWidth="1dp"
+                                            app:hintEnabled="false">
 
                                             <com.google.android.material.textfield.TextInputEditText
                                                 android:id="@+id/edtSpecialOfferDiscount"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:imeOptions="actionDone"
-                                                android:gravity="center"
-                                                android:inputType="phone"
                                                 android:digits="0123456789"
+                                                android:gravity="center"
+                                                android:imeOptions="actionDone"
+                                                android:inputType="phone"
                                                 android:maxLength="5"
                                                 android:textColor="@color/primaryText"
                                                 android:textSize="14sp" />
@@ -878,22 +890,22 @@
 
                                         <ImageView
                                             android:id="@+id/imgMinusSpecialOfferDiscount"
-                                            android:layout_marginStart="16dp"
-                                            android:layout_centerVertical="true"
-                                            android:backgroundTint="@color/bgIcon"
-                                            android:background="@drawable/ic_minus"
                                             android:layout_width="28dp"
-                                            android:layout_height="28dp"/>
+                                            android:layout_height="28dp"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginStart="16dp"
+                                            android:background="@drawable/ic_minus"
+                                            android:backgroundTint="@color/bgIcon" />
 
                                         <ImageView
                                             android:id="@+id/imgAddSpecialOfferDiscount"
-                                            android:layout_marginEnd="16dp"
-                                            android:layout_centerVertical="true"
-                                            android:layout_alignParentEnd="true"
-                                            android:backgroundTint="@color/bgIcon"
-                                            android:background="@drawable/ic_add"
                                             android:layout_width="28dp"
-                                            android:layout_height="28dp"/>
+                                            android:layout_height="28dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginEnd="16dp"
+                                            android:background="@drawable/ic_add"
+                                            android:backgroundTint="@color/bgIcon" />
 
                                     </RelativeLayout>
 
@@ -902,32 +914,32 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="OR"
                                     android:layout_marginStart="10dp"
                                     android:layout_marginEnd="10dp"
+                                    android:text="OR"
                                     android:textAppearance="@style/FontPath.Medium"
                                     android:textColor="@color/secondaryText"
                                     android:textSize="12sp" />
 
                                 <LinearLayout
-                                    android:orientation="vertical"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1">
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
 
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/rate"
                                         android:layout_marginTop="12dp"
+                                        android:text="@string/rate"
                                         android:textAppearance="@style/FontPath.Medium"
                                         android:textColor="@color/primaryText"
                                         android:textSize="14sp" />
 
                                     <RelativeLayout
-                                        android:layout_marginTop="6dp"
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp">
 
                                         <com.google.android.material.textfield.TextInputLayout
                                             android:id="@+id/inputLayoutSpecialOfferRate"
@@ -940,18 +952,18 @@
                                             app:boxCornerRadiusBottomStart="8dp"
                                             app:boxCornerRadiusTopEnd="8dp"
                                             app:boxCornerRadiusTopStart="8dp"
-                                            app:hintEnabled="false"
                                             app:boxStrokeColor="@color/text_input_selector"
-                                            app:boxStrokeWidth="1dp">
+                                            app:boxStrokeWidth="1dp"
+                                            app:hintEnabled="false">
 
                                             <com.google.android.material.textfield.TextInputEditText
                                                 android:id="@+id/edtSpecialOfferRate"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:imeOptions="actionDone"
-                                                android:gravity="center"
-                                                android:inputType="phone"
                                                 android:digits="0123456789"
+                                                android:gravity="center"
+                                                android:imeOptions="actionDone"
+                                                android:inputType="phone"
                                                 android:maxLength="5"
                                                 android:textColor="@color/primaryText"
                                                 android:textSize="14sp" />
@@ -960,22 +972,22 @@
 
                                         <ImageView
                                             android:id="@+id/imgMinusSpecialOfferRate"
-                                            android:layout_marginStart="16dp"
-                                            android:layout_centerVertical="true"
-                                            android:backgroundTint="@color/bgIcon"
-                                            android:background="@drawable/ic_minus"
                                             android:layout_width="28dp"
-                                            android:layout_height="28dp"/>
+                                            android:layout_height="28dp"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginStart="16dp"
+                                            android:background="@drawable/ic_minus"
+                                            android:backgroundTint="@color/bgIcon" />
 
                                         <ImageView
                                             android:id="@+id/imgAddSpecialOfferRate"
-                                            android:layout_marginEnd="16dp"
-                                            android:layout_centerVertical="true"
-                                            android:layout_alignParentEnd="true"
-                                            android:backgroundTint="@color/bgIcon"
-                                            android:background="@drawable/ic_add"
                                             android:layout_width="28dp"
-                                            android:layout_height="28dp"/>
+                                            android:layout_height="28dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginEnd="16dp"
+                                            android:background="@drawable/ic_add"
+                                            android:backgroundTint="@color/bgIcon" />
 
                                     </RelativeLayout>
 
@@ -995,12 +1007,12 @@
                                 app:strokeWidth="1dp">
 
                                 <LinearLayout
-                                    android:padding="16dp"
-                                    android:background="@drawable/bg_notes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_notes"
                                     android:gravity="center"
-                                    android:orientation="horizontal">
+                                    android:orientation="horizontal"
+                                    android:padding="16dp">
 
                                     <ImageView
                                         android:layout_width="40dp"
@@ -1015,7 +1027,7 @@
                                         android:layout_weight="1"
                                         android:text="Provide a special offer for a set amount of hours, e.g. For 6 hours apply a 10% OR $100 discount."
                                         android:textAppearance="@style/FontPath.Medium"
-                                        android:textColor="@color/blackText"
+                                        android:textColor="@color/grey900"
                                         android:textSize="12sp" />
 
                                 </LinearLayout>
@@ -1027,6 +1039,11 @@
                     </com.github.florent37.expansionpanel.ExpansionLayout>
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/appDivider" />
 
             </LinearLayout>
 
@@ -1042,12 +1059,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="56dp"
                 android:text="@string/stepThree"
-                app:icon="@drawable/ic_back"
-                app:iconTint="@color/colorPrimary"
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimary"
                 app:backgroundTint="@color/white"
                 app:cornerRadius="8dp"
+                app:icon="@drawable/ic_back"
+                app:iconTint="@color/colorPrimary"
                 app:rippleColor="@color/colorPrimaryDark"
                 app:strokeColor="@color/appDivider"
                 app:strokeWidth="1dp" />
@@ -1068,8 +1085,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

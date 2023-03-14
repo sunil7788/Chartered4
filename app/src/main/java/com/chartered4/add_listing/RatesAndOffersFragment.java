@@ -26,6 +26,7 @@ import com.chartered4.MainActivity;
 import com.chartered4.R;
 import com.chartered4.databinding.FragmentAmenitiesAndEquipmentBinding;
 import com.chartered4.databinding.FragmentRatesAndOffersBinding;
+import com.chartered4.utils.AppUtils;
 
 /**
  * Created by DELL on 14-Oct-18.
@@ -51,9 +52,8 @@ public class RatesAndOffersFragment extends Fragment implements View.OnClickList
 
         SpannableStringBuilder builder = new SpannableStringBuilder();
 
-        //
-        SpannableString spannableString1 = new SpannableString("Provide a special offer for a set amount of hours, e.g. For 6 hours apply a");
-        ForegroundColorSpan foregroundSpan1 = new ForegroundColorSpan(ContextCompat.getColor(getActivity(), R.color.primaryText));
+        SpannableString spannableString1 = new SpannableString("Provide a special offer for a set amount of hours, e.g. For 6 hours apply a ");
+        ForegroundColorSpan foregroundSpan1 = new ForegroundColorSpan(ContextCompat.getColor(getActivity(), R.color.grey700));
         spannableString1.setSpan(foregroundSpan1, 0, spannableString1.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
         builder.append(spannableString1);
 
@@ -66,9 +66,6 @@ public class RatesAndOffersFragment extends Fragment implements View.OnClickList
         spannableString2.setSpan(new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                Log.e("freeCancellation","clicked");
-//                startActivity(new Intent(CartActivity.this, URLSActivity.class)
-//                        .putExtra(AppConstants.URLS.CANCELLATION_POLICY, AppConstants.URLS.CANCELLATION_POLICY));
             }
 
             @Override
@@ -79,11 +76,6 @@ public class RatesAndOffersFragment extends Fragment implements View.OnClickList
 
         },0, spannableString2.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
         builder.append(spannableString2);
-/*
-        SpannableString spannableString3 = new SpannableString(" upto 2 hours before the appointment time");
-        ForegroundColorSpan foregroundSpan3 = new ForegroundColorSpan(ContextCompat.getColor(getActivity(), R.color.primaryText));
-        spannableString3.setSpan(foregroundSpan3, 0, spannableString3.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-        builder.append(spannableString3);*/
 
         binding.txtNotes.setText(builder, TextView.BufferType.SPANNABLE);
 
@@ -109,9 +101,11 @@ public class RatesAndOffersFragment extends Fragment implements View.OnClickList
     public void onClick(View view) {
         int viewId = view.getId();
         if (viewId == R.id.btnPrevious){
+            AppUtils.hideKeyboard(binding.btnPrevious, getActivity());
             ((AddListingActivity) getActivity()).changePreviousPage();
         }
         if (viewId == R.id.btnSubmit){
+            AppUtils.hideKeyboard(binding.btnSubmit, getActivity());
         }
     }
 
